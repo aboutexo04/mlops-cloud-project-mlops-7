@@ -1,0 +1,9 @@
+name: "🐛 Bug · Feature"
+description: 피처 계산/라벨 생성 문제
+title: "[FEAT] "
+labels: ["bug","features"]
+body:
+  - type: textarea; id: symptom; attributes: {label: 증상(값 이상/결측/범위), placeholder: 예) rn_roll3_sum 값이 음수}
+  - type: textarea; id: input;   attributes: {label: 입력 예시(컬럼/샘플)}
+  - type: textarea; id: logic;   attributes: {label: 기대 로직 vs 실제}
+  - type: textarea; id: repro;   attributes: {label: 재현 절차}

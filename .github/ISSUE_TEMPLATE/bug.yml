@@ -1,0 +1,18 @@
+name: "🐛 Bug"
+description: 재현 가능한 버그를 보고합니다
+title: "[BUG] "
+labels: ["bug", "priority:high"]
+body:
+  - type: textarea
+    id: desc
+    attributes:
+      label: 증상 설명
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 절차
+      placeholder: 1) ... 2) ...
+    validations:
+      required: true

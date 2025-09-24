@@ -1,0 +1,9 @@
+name: "🐛 Bug · Serving/API"
+description: FastAPI/응답/모델로드 문제
+title: "[SERVE] "
+labels: ["bug","serving"]
+body:
+  - type: textarea; id: symptom; attributes: {label: 증상(에러/슬로우/헬스체크 실패)}
+  - type: textarea; id: request; attributes: {label: 요청 페이로드/엔드포인트}
+  - type: input;    id: model;   attributes: {label: 모델 버전}
+  - type: textarea; id: logs;    attributes: {label: 서버 로그/트레이스백, render: shell}

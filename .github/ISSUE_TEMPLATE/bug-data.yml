@@ -1,0 +1,9 @@
+name: "🐛 Bug · Data"
+description: 수집/정제/스키마 문제
+title: "[DATA] "
+labels: ["bug","data"]
+body:
+  - type: textarea; id: symptom; attributes: {label: 증상/로그}; validations: {required: true}
+  - type: textarea; id: source;  attributes: {label: 소스(API/파일/스테이션)}
+  - type: textarea; id: schema;  attributes: {label: 스키마/타입 변화}
+  - type: textarea; id: repro;   attributes: {label: 재현 절차(명령/파라미터)}

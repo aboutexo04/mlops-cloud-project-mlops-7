@@ -1,0 +1,9 @@
+name: "🐛 Bug · Train/Eval"
+description: 학습/메트릭/MLflow 이슈
+title: "[TRAIN] "
+labels: ["bug","training"]
+body:
+  - type: textarea; id: symptom; attributes: {label: 증상(학습 실패/스코어 급락)}
+  - type: input;    id: run;     attributes: {label: MLflow run id/commit}
+  - type: textarea; id: params;  attributes: {label: 파라미터/데이터 버전}
+  - type: textarea; id: repro;   attributes: {label: 재현 명령}

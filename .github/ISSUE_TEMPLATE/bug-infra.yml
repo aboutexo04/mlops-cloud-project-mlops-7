@@ -1,0 +1,9 @@
+name: "🐛 Bug · Infra/CI"
+description: CI/CD/컨테이너/권한 문제
+title: "[INFRA] "
+labels: ["bug","infra"]
+body:
+  - type: textarea; id: symptom; attributes: {label: 증상(워크플로 실패/권한/빌드)}
+  - type: input;    id: run;     attributes: {label: Actions run 링크/빌드번호}
+  - type: textarea; id: env;     attributes: {label: 환경(OS/런타임/이미지 태그)}
+  - type: textarea; id: repro;   attributes: {label: 재현 절차}

@@ -1,0 +1,38 @@
+services:
+  # Airflow Standalone (간단한 방식)
+  airflow-standalone:
+    image: apache/airflow:2.6.3-python3.8
+    container_name: airflow-standalone
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=false
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=true
+      # 환경변수
+      - KMA_BASE_URL=https://apihub.kma.go.kr/api/typ01/url
+      - KMA_API_KEY=${KMA_API_KEY}
+      - KMA_STATION_ID=0
+      - KMA_TIMEOUT_SECONDS=60
+      - S3_BUCKET_NAME=${S3_BUCKET_NAME}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=us-east-1
+      - S3_ENDPOINT_URL=
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./src:/opt/airflow/src
+      - ./logs:/opt/airflow/logs
+      - ./requirements.txt:/requirements.txt
+    command: >
+      bash -c "
+        echo 'Installing requirements...' &&
+        pip install --no-cache-dir -r /requirements.txt &&
+        echo 'Initializing database...' &&
+        airflow db init &&
+        echo 'Creating admin user...' &&
+        airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com || echo 'User exists' &&
+        echo 'Starting Airflow...' &&
+        airflow standalone
+      "

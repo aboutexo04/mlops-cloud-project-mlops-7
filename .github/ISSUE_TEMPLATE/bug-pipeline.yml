@@ -1,0 +1,9 @@
+name: "🐛 Bug · Pipeline"
+description: Airflow/스케줄/태스크 실패
+title: "[PIPE] "
+labels: ["bug","pipeline"]
+body:
+  - type: input;    id: dag;     attributes: {label: DAG/Task id}
+  - type: textarea; id: symptom; attributes: {label: 증상/실패 시각(UTC+9)}
+  - type: textarea; id: context; attributes: {label: 최근 변경사항(코드/환경)}
+  - type: textarea; id: logs;    attributes: {label: 태스크 로그 요약, render: shell}
